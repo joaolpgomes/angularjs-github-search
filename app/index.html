@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GitHub App</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,300italic,700,100italic' rel='stylesheet' type='text/css'>  <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../bower_components/angular-loading-bar/build/loading-bar.min.css"/>
+    <link rel="stylesheet" href="../bower_components/nvd3/build/nv.d3.css">
+    <link rel="stylesheet" href="assets/styles/font-awesome.min.css"/>
+    <link rel="stylesheet" href="assets/styles/styles.min.css"/>
+</head>
+<body ng-app="githubApp" ng-cloak>
+    <div id="logo-container" class="animated bounceInDown">
+      <h1>Repository Search</h1>
+    </div>
+    <div class="container">
+        <app-component></app-component>
+    </div>
+      <script src="../bower_components/angular/angular.min.js"></script>
+      <script src="../bower_components/angular-route/angular-route.min.js"></script>
+      <script src="../bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+      <script src="../bower_components/d3/d3.js"></script>
+      <script src="../bower_components/nvd3/build/nv.d3.js"></script>
+      <script src="../bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
+
+      <script src="scripts/app.js"></script>
+      <script src="scripts/services/appconstants.js"></script>
+      <script src="scripts/services/githubservice.js"></script>
+      <script src="scripts/services/utilsservice.js"></script>
+      <script src="scripts/components/githubrepositorypagination/githubrepositorypagination.js"></script>
+      <script src="scripts/components/githubrepositorychart/githubrepositorychart.js"></script>
+      <script src="scripts/components/githubrepositoryissue/githubrepositoryissue.js"></script>
+      <script src="scripts/components/githubrepository/githubrepository.js"></script>
+      <script src="scripts/components/main/appcomponent.js"></script>
+    </body>
+</html>

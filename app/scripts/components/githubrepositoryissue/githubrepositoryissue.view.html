@@ -1,0 +1,18 @@
+<div class="issue-container">
+    <div class="row">
+        <div class="col-xs-2 text-center">
+            <a class="status-issue" ng-class="{ 'open': $ctrl.issue.state == 'open', 'closed': $ctrl.issue.state == 'closed' }" target="_blank" ng-href="{{$ctrl.issue.html_url}}">
+                <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{$ctrl.issue.state}}
+            </a>
+        </div>
+        <div class="col-xs-10">
+            <span>
+                <a ng-href="{{$ctrl.issue.html_url}}" target="_blank">{{$ctrl.issue.title}}</a>
+            </span>
+            <div class="closed-by" ng-if="$ctrl.issue.closed_at">
+                <span><i class="fa fa fa-calendar"></i> Closed by : {{$ctrl.issue.closed_at | date}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+

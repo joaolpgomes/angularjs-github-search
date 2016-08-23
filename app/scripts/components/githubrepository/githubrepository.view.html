@@ -1,0 +1,48 @@
+<div class="repository-container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-1">
+            <div class="image-container">
+                <img ng-src="{{$ctrl.repository.owner.avatar_url}}" width="60" height="60"/>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-9 default-details">
+                <span>
+                    <a ng-href="{{$ctrl.repository.html_url}}" target="_blank">{{$ctrl.repository.full_name}}</a>
+                </span>
+                <span>
+                    {{ $ctrl.repository.description | limitTo: 70 }}{{$ctrl.repository.description.length > 70 ? '...' : ''}}
+                </span>
+            <div class="extra-details">
+                <span><i class="fa fa-code-fork"></i> Forks Count: {{ $ctrl.repository.forks_count }}</span>
+                <span><i class="fa fa fa-cog"></i> Stargazers Count: {{ $ctrl.repository.stargazers_count }}</span>
+                <span><i class="fa fa fa-exclamation"></i> Open Issues Count: {{ $ctrl.repository.open_issues_count }}</span>
+                <span><i class="fa fa fa-bullseye"></i> Watchers Count: {{ $ctrl.repository.watchers_count }}</span>
+            </div>
+            <div class="extra-details">
+                <span><i class="fa fa fa-calendar"></i> Created by : {{$ctrl.repository.created_at | date}}</span>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            <button class="btn btn-primary button-repo-details" ng-click="$ctrl.search($ctrl.repository.full_name)">View Details</button>
+        </div>
+    </div>
+    <div class="row details-repository" ng-if="$ctrl.showDetails" >
+        <div class="col-xs-12">
+            <div class="alert alert-danger" ng-if="$ctrl.error">
+                <strong>Error!</strong> Something is wrong when requesting those issues..... Try again later!
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+            <h3>List of Issues</h3>
+            <div ng-if="$ctrl.processing">Loading...</div>
+            <div ng-if="$ctrl.issues.length === 0"> No Results</div>
+            <github-pagination ng-if="$ctrl.issues.length > 0" pagination="$ctrl.pagination" request-page="$ctrl.requestPage(pageUrl)"></github-pagination>
+            <github-repository-issue ng-repeat="issue in $ctrl.issues" issue="issue"></github-repository-issue>
+            <github-pagination ng-if="$ctrl.issues.length > 0" pagination="$ctrl.pagination" request-page="$ctrl.requestPage(pageUrl)"></github-pagination>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <h3>Details of the Repository</h3>
+            <github-repository-chart repository-data="$ctrl.repository"></github-repository-chart>
+        </div>
+    </div>
+</div>

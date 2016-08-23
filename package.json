@@ -1,0 +1,26 @@
+{
+  "name": "github-app",
+  "private": true,
+  "version": "0.0.0",
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^1.2.1",
+    "http-server": "^0.9.0",
+    "jasmine": "^2.4.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.2.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-junit-reporter": "^1.1.0",
+    "protractor": "^4.0.3",
+    "shelljs": "^0.7.3"
+  },
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "jquery": "^3.0.0"
+  }
+}

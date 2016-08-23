@@ -1,0 +1,26 @@
+<div class="text-center">
+    <nav>
+        <ul class="pagination pagination-sm">
+            <li ng-if="$ctrl.pagination.first">
+                <a  aria-label="First" ng-click="$ctrl.requestNewPage({pageUrl: $ctrl.pagination.first})">
+                    <span aria-hidden="true">First</span>
+                </a>
+            </li>
+            <li ng-if="$ctrl.pagination.prev">
+                <a aria-label="Previous" ng-click="$ctrl.requestNewPage({pageUrl: $ctrl.pagination.prev})">
+                    <span aria-hidden="true">&laquo; Prev</span>
+                </a>
+            </li>
+            <li ng-if="$ctrl.pagination.next">
+                <a  aria-label="Next" ng-click="$ctrl.requestNewPage({pageUrl:$ctrl.pagination.next})">
+                    <span aria-hidden="true">Next &raquo;</span>
+                </a>
+            </li>
+            <li ng-if="$ctrl.pagination.last">
+                <a aria-label="Last" ng-click="$ctrl.requestNewPage({pageUrl:$ctrl.pagination.last})">
+                    <span aria-hidden="true">Last</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
