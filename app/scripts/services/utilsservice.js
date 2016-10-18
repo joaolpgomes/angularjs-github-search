@@ -20,17 +20,17 @@ angular.module('githubApp')
 				}
 				
 				// Split parts by comma
-				var parts = header.split(',');
-				var links = {};
+				let parts = header.split(',');
+				let links = {};
 
 				// Parse each part into a named link
 				angular.forEach(parts, function(p) {
-					var section = p.split(';');
+					let section = p.split(';');
 					if (section.length != 2) {
 						throw new Error("section could not be split on ';'");
 					}
-					var url = section[0].replace(/<(.*)>/, '$1').trim();
-					var name = section[1].replace(/rel="(.*)"/, '$1').trim();
+					let url = section[0].replace(/<(.*)>/, '$1').trim();
+					let name = section[1].replace(/rel="(.*)"/, '$1').trim();
 					links[name] = url;
 				});
 

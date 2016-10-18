@@ -6,25 +6,26 @@
 
 function PaginationController(){
 
-	var ctrl = this;
-
 	/**
 	 * @description
 	 * Calls the api in the parent component
 	 * 
 	 * @param pageUrl
 	 */
-	ctrl.requestNewPage = function(pageUrl){
-		ctrl.requestPage(pageUrl);
+	this.requestNewPage = function(pageUrl){
+		this.requestPage(pageUrl);
 	}
 
 }
 
-angular.module('githubApp').component('githubPagination', {
+
+const githubPagination = {
 	templateUrl: 'scripts/components/githubrepositorypagination/githubrepositorypagination.view.html',
 	controller: PaginationController,
 	bindings:{
 		pagination: '=',
 		requestPage: '&'
 	}
-});
+}
+
+angular.module('githubApp').component('githubPagination', githubPagination);

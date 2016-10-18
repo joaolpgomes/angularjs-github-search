@@ -1,12 +1,35 @@
+
 /**
  *	@description
  * Component to handle the detail of a repository
  *
  */
 function RepositoryController(GithubService, UtilsService) {
-	var ctrl = this;
+	let ctrl = this;
 
-	ctrl.showDetails = false; 		//controls the details visibility of the repository
+	/**
+ 	 * @description
+ 	 * Init of the component
+ 	 *
+ 	 */
+ 	this.$onInit = function(){
+ 		this.showDetails = false; 		//controls the details visibility of the repository
+ 		this.issues = []; 				
+ 		this.error = false;
+ 		this.processing = false;
+ 		this.pagination;
+ 	}
+
+	/**
+ 	 * @description
+ 	 * Objects passing by reference
+ 	 *
+ 	 */
+ 	this.$onChanges = function(changes){
+	    if (changes.repository) {
+	      this.repository = Object.assign({}, this.repository);
+	    }
+  	}
 
 	/**
 	 * @description
@@ -15,11 +38,11 @@ function RepositoryController(GithubService, UtilsService) {
 	 * 
 	 * @param {String} query
 	 */
-	ctrl.search = function(query) {
-		if(!ctrl.showDetails) {
-			ctrl.showDetails = true;
-			if(ctrl.issues === undefined  && ctrl.repository.has_issues && !ctrl.processing){
-				ctrl.processing = true;
+	this.search = function(query) {
+		if(!this.showDetails) {
+			this.showDetails = true;
+			if(this.repository.has_issues && !this.processing){
+				this.processing = true;
 				GithubService.getListIssues(query).then(function (result) {
 					ctrl.processing = false;
 					ctrl.issues = result.data.items;
@@ -31,7 +54,7 @@ function RepositoryController(GithubService, UtilsService) {
 				});
 			}
 		}else{
-			ctrl.showDetails = false;
+			this.showDetails = false;
 		}
 	};
 	
@@ -43,8 +66,7 @@ function RepositoryController(GithubService, UtilsService) {
 	 *  
 	 *  @param {String} query
 	 */
-	ctrl.requestPage = function(pageUrl){
-
+	this.requestPage = function(pageUrl){
 		GithubService.getPagination(pageUrl).then(function(result){
 			ctrl.processing = false;
 			ctrl.issues = result.data.items;
@@ -56,10 +78,16 @@ function RepositoryController(GithubService, UtilsService) {
 	}
 }
 
-angular.module('githubApp').component('githubRepository', {
+
+const githubRepository = {
 	templateUrl: 'scripts/components/githubrepository/githubrepository.view.html',
 	controller: RepositoryController,
 	bindings: {
 		repository: '<'
 	}
-});
+}
+
+angular.module('githubApp').component('githubRepository', githubRepository);
+
+
+

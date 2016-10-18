@@ -9,8 +9,14 @@
         <strong>Error!</strong> Something is wrong when requesting those repositories..... Try again later!
     </div>
 </div>
-<div ng-if="$ctrl.items.length !== undefined && $ctrl.items.length === 0">No Results</div>
+
+
+<div ng-if="$ctrl.items.length === 0">No Results</div>
+
+
 <github-pagination pagination="$ctrl.pagination" request-page="$ctrl.requestPage(pageUrl)" ng-if="$ctrl.items.length > 0"></github-pagination>
+
 <github-repository ng-repeat="item in $ctrl.items" repository="item"></github-repository>
+
 <github-pagination pagination="$ctrl.pagination" request-page="$ctrl.requestPage(pageUrl)" ng-if="$ctrl.items.length > 0"></github-pagination>
 

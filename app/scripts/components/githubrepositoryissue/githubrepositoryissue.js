@@ -5,10 +5,12 @@
  */
 function RepositoryIssueController() {}
 
-angular.module('githubApp').component('githubRepositoryIssue', {
+const githubRepositoryIssue = {
 	templateUrl: 'scripts/components/githubrepositoryissue/githubrepositoryissue.view.html',
 	controller: RepositoryIssueController,
 	bindings: {
 		issue: '<'
 	}
-});
+}
+
+angular.module('githubApp').component('githubRepositoryIssue', githubRepositoryIssue);

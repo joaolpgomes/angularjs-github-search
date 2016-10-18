@@ -35,7 +35,7 @@
         <div class="col-xs-12 col-sm-8">
             <h3>List of Issues</h3>
             <div ng-if="$ctrl.processing">Loading...</div>
-            <div ng-if="$ctrl.issues.length === 0"> No Results</div>
+            <div ng-if="!$ctrl.processing && $ctrl.issues.length === 0"> No Results</div>
             <github-pagination ng-if="$ctrl.issues.length > 0" pagination="$ctrl.pagination" request-page="$ctrl.requestPage(pageUrl)"></github-pagination>
             <github-repository-issue ng-repeat="issue in $ctrl.issues" issue="issue"></github-repository-issue>
             <github-pagination ng-if="$ctrl.issues.length > 0" pagination="$ctrl.pagination" request-page="$ctrl.requestPage(pageUrl)"></github-pagination>

@@ -7,9 +7,9 @@ angular.module('githubApp')
 		return{
 			getListRepositories: function (query) {
 
-				var endpoint = AppConstants.ENDPOINTGITHUBREPOSITORIES + "?q=" + query;
+				let endpoint = AppConstants.ENDPOINTGITHUBREPOSITORIES + "?q=" + query;
 				
-				var deferred = $q.defer();
+				let deferred = $q.defer();
 
 				$http.get(endpoint)
 					.success(function(data, status, headers) {
@@ -26,9 +26,9 @@ angular.module('githubApp')
 				return deferred.promise;
 			},
 			getListIssues: function(query){
-				var endpoint = AppConstants.ENDPOINTGITHUBISSUES + "?q=repo:" + query;
+				let endpoint = AppConstants.ENDPOINTGITHUBISSUES + "?q=repo:" + query;
 
-				var deferred = $q.defer();
+				let deferred = $q.defer();
 
 				$http.get(endpoint)
 					.success(function(data, status, headers) {
@@ -46,7 +46,7 @@ angular.module('githubApp')
 			},
 			getPagination: function(endpoint){
 
-				var deferred = $q.defer();
+				let deferred = $q.defer();
 
 				$http.get(endpoint)
 					.success(function(data, status, headers) {
