@@ -1,7 +1,7 @@
 GitHub Search App
 =======================
 
-App for searching github repositories with AngularJS
+App to search github repositories with AngularJS
 
 requirements
 -----------
